@@ -36,6 +36,7 @@ EOF
 RUN chmod 640 /var/lib/postgresql/pgbackrest.conf && chown postgres:postgres /var/lib/postgresql/pgbackrest.conf
 
 # Inicialização PGBackRest - Será executado uma unica vez, assim que o container for levantado pela primeira vez
+ADD --chown=postgres:postgres relacional.sql /docker-entrypoint-initdb.d/relacional.sql
 #RUN cat > /docker-entrypoint-initdb.d/pgbackrest-init.sh <<EOF
 #!/bin/bash
 #set -e
