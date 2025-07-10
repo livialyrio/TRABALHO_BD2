@@ -10,6 +10,10 @@ up(){
     docker compose up -d;
 }
 
+up2(){
+    docker compose up -d maquina2 maquina1;
+}
+
 stop(){
     docker compose down;
 }
