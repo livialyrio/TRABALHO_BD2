@@ -68,7 +68,7 @@ services:
       - "15432:5432"
       - "2221:22"
     volumes:
-      - ./maquina1/data:/var/lib/postgresql/data:rw
+      - maquina1-pgdata:/var/lib/postgresql/data
       - ./maquina1/log:/var/lib/postgresql/log:rw
       - maquina1-ssh:/var/lib/postgresql/.ssh:rw
       - ./maquina1/postgresql.conf:/var/lib/postgresql/data/postgresql.conf:rw
@@ -181,7 +181,7 @@ services:
     ports:
       - "15433:5432"
     volumes:
-      - ./dw/data:/var/lib/postgresql/data:rw
+      - dw-data:/var/lib/postgresql/data
       - ./dw/log:/var/lib/postgresql/log:rw
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
@@ -194,8 +194,8 @@ services:
     networks:
       rede:
         ipv4_address: 110.0.0.116
-    command: |
-      -c "wal_keep_size=64MB"
+    #command: |
+      #-c "wal_keep_size=64MB"
 
 
   postgres:
@@ -510,6 +510,9 @@ volumes:
   maquina1-ssh:
     name: maquina1-ssh
     driver: local
+  maquina1-pgdata:
+    name: maquina1-pgdata
+    driver: local
   maquina2-ssh:
     name: maquina2-ssh
     driver: local
@@ -521,4 +524,7 @@ volumes:
     driver: local
   grafana-data:
     name: grafana-data
+    driver: local
+  dw-data:
+    name: dw-data
     driver: local

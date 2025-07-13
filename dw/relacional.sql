@@ -13,7 +13,6 @@ CREATE USER MAPPING FOR postgres
   OPTIONS (user 'postgres', password 'postgres');
 
 IMPORT FOREIGN SCHEMA public
-  LIMIT TO (clientes)
   FROM SERVER maquina1_server
   INTO staging;
 
