@@ -1,9 +1,21 @@
 version: 2
 
 sources:
-  - name: origem
-    schema: public
-    database: ""
+  - name: maquina1_staging
+    schema: public      
+    database: dw          
+
     tables:
-      - name: clientes
-        description: "Tabela de clientes"
+      - name: circuits
+      - name: constructors
+      - name: drivers
+      - name: seasons
+      - name: status
+      - name: races
+      - name: results
+      - name: driver_standings
+      - name: constructor_results
+      - name: qualifying
+      - name: laptimes
+      - name: pitstops
+
